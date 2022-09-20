@@ -3,3 +3,9 @@
     display: flex;
     justify-content: center;
 }
+#totalBuys{
+    margin-right: 50px;
+}
+#totalSells{
+    margin-left: 50px;
+}
