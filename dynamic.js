@@ -96,7 +96,10 @@ function sells() {
             totalCost + (minimo.value * totalCost) / 100
             );
             let TotalWithivaExento = totalCost;
-    if(arrayElements.includes(element[positionElement].children[0].textContent)){
+            if(arrayElements.includes(movementCodeProduct.value) == false){
+                alert('No tienes stock de este articulo')
+            }
+    if(sell.checked && arrayElements.includes(movementCodeProduct.value)){
     if (sell.checked && basico.checked) {
       innerMovements(sell.value, basico.value, TotalWithivaBasico, totalCost);
     }
