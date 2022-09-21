@@ -83,18 +83,20 @@ function newStockInner(newStock, position) {
 }
 let arraySells = [];
 function sells() {
-  let cuantity = parseInt(count.value);
-  let unityValue = parseInt(movementCostUnit.value);
-  let totalCost = cuantity * unityValue;
-  let TotalWithivaBasico = parseInt(
-    totalCost + (basico.value * totalCost) / 100
-  );
-  let TotalWithivaMinimo = parseInt(
-    totalCost + (minimo.value * totalCost) / 100
-  );
-  let TotalWithivaExento = totalCost;
-  if (bodyTableInventory.firstChild) {
+    let positionElement = arrayElements.indexOf(movementCodeProduct.value);
+    let cuantity = parseInt(count.value);
+    let unityValue = parseInt(movementCostUnit.value);
+    let totalCost = cuantity * unityValue;
+    let element = document.querySelectorAll(".el");
     let totalSells = document.getElementById("totalSells");
+    let TotalWithivaBasico = parseInt(
+        totalCost + (basico.value * totalCost) / 100
+        );
+        let TotalWithivaMinimo = parseInt(
+            totalCost + (minimo.value * totalCost) / 100
+            );
+            let TotalWithivaExento = totalCost;
+    if(arrayElements.includes(element[positionElement].children[0].textContent)){
     if (sell.checked && basico.checked) {
       innerMovements(sell.value, basico.value, TotalWithivaBasico, totalCost);
     }
@@ -119,7 +121,6 @@ function sells() {
     }
     if (sell.checked && arrayElements.includes(movementCodeProduct.value)) {
       const positionElement = arrayElements.indexOf(movementCodeProduct.value);
-      const element = document.querySelectorAll(".el");
       const newStock =
         parseInt(element[positionElement].children[3].textContent) -
         parseInt(count.value);
@@ -155,6 +156,7 @@ function sells() {
     }
   }
 }
+
 
 let arrayBuys = [];
 function buys() {
